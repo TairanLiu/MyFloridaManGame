@@ -10,7 +10,7 @@ import android.widget.EditText;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    EditText user;
+    static EditText user;
     EditText password;
     static HashMap<Integer,Account>players= new HashMap<Integer,Account>();
 
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         addAccount();
         loadScreen();
     }
-    public EditText getUser(){
-        return user;
+    public static int getHighScore(){
+        return players.get(user).getBestScore();
     }
 
     //getBestScore

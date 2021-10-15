@@ -15,12 +15,13 @@ public class Final extends AppCompatActivity {
         finalScore = findViewById(R.id.textView4);
         bestScore = findViewById(R.id.textView6);
         getFinalScore();
+        bestScore.setText(getBestScore());
 
     }
     public void getFinalScore(){
         finalScore.setText(TheGame.score());
     }
-    public void getBestScore(){
-
+    public String getBestScore(){
+        return ""+MainActivity.getHighScore();
     }
 }
