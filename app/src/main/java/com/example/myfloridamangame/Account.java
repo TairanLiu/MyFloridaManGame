@@ -25,4 +25,5 @@ public class Account {
     public Integer getPrivateID(){
         return privateID;
     }
+    public int getBestScore(){return bestScore;}
 }

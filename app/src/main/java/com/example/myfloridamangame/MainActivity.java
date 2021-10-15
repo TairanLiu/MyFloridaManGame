@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
     EditText user;
     EditText password;
-    HashMap<Integer,Account>players= new HashMap<Integer,Account>();
+    static HashMap<Integer,Account>players= new HashMap<Integer,Account>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         user = findViewById(R.id.editTextTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword);
+
     }
-    public void loadScreen(View view){
+    public void loadScreen(){
         Intent intent = new Intent (this, TheGame.class);
         //take from this current view to theGame
         startActivity(intent);
@@ -31,5 +32,15 @@ public class MainActivity extends AppCompatActivity {
         players.put(player1.getPrivateID(),player1);
     }
 
+    //How to load this screen?
+    public void onClick(View view){
+        addAccount();
+        loadScreen();
+    }
+    public EditText getUser(){
+        return user;
+    }
+
+    //getBestScore
 
 }
