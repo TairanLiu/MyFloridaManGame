@@ -24,6 +24,7 @@ public class TheGame extends AppCompatActivity {
     Iterator i = HeadlineBank.bank().values().iterator();
     Map.Entry mapElement;
     Headline currentHeadlne;
+    boolean outOfQuestions = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,13 @@ public class TheGame extends AppCompatActivity {
         B = findViewById(R.id.button2);
         C = findViewById(R.id.button3);
         D = findViewById(R.id.button4);
+        while (outOfQuestions == false){
+            askQuestion(currentHeadlne);
+            getNextEntry();
+            if (i.hasNext() == false){
+                outOfQuestions = true;
+            }
+        }
         //
         /*for (Integer i = 0; i< 10; i++){
             HashMap hashMap = HeadlineBank.bank();
