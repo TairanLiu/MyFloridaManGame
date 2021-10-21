@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/start"
-        android:layout_width="200"
-        android:layout_height="200"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
         android:onClick="onClick"
         android:text="Start game"
         android:textSize="60sp"
@@ -26,32 +26,41 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="193dp"
-        android:layout_height="184dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="27dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/img_3501"
-        tools:layout_editor_absoluteY="45dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_3501" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
         android:ems="10"
         android:hint="username"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="256dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="358dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="328dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

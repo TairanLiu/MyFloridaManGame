@@ -2,7 +2,9 @@ package com.example.myfloridamangame;
 
 import android.widget.EditText;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private Integer privateID;
     private String username;
     private String password;
