@@ -48,6 +48,29 @@ public class HeadlineBank {
         //florida man is the best headline
         Headline fl = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
         hdlBank.put(0,fl);
+        Headline ba = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(10,ba);
+        Headline a = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(11,a);
+        Headline c = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(12,c);
+        Headline d = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(13,d);
+        Headline e = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(14,e);
+        Headline f = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(15,f);
+        Headline g = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(16,g);
+        Headline h = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(17,h);
+        Headline i = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(18,i);
+        Headline j = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(19,j);
+        Headline k = new Headline("florida man", "__is the best headline", "florida man ","flolida man ","flarida man ","fl man ");
+        hdlBank.put(20,k);
+
     }
     public static HashMap bank(){
         return hdlBank;
