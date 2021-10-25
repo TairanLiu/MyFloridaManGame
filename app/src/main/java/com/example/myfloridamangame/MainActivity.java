@@ -8,11 +8,13 @@ import android.view.View;
 import android.widget.EditText;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     static EditText user;
-    EditText password;
-    static HashMap<Integer,Account>players= new HashMap<Integer,Account>();
+    static EditText password;
+    static HashMap<String,Account>players= new HashMap<String,Account>();
+    //static Integer count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void addAccount(){
         Account player1 = new Account(user,password);
         players.put(player1.getPrivateID(),player1);
+        //count++;
     }
 
     //How to load this screen?
@@ -38,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
         addAccount();
         loadScreen();
     }
-    public static int getHighScore(){
-        return players.get(user).getBestScore();
+    public static int getHighScore() {
+        Account thisPerson = new Account(user, password);
+        return players.get(thisPerson.getPrivateID()).getBestScore();
     }
-
     //getBestScore
 
 }
