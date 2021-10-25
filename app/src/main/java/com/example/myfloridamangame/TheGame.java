@@ -20,6 +20,7 @@ public class TheGame extends AppCompatActivity {
     Button B;
     Button C;
     Button D;
+    TextView currScore;
     static int score = 0;
     String selectedAnswer;
     Iterator<Map.Entry<Integer, Headline>>  i;
@@ -38,6 +39,7 @@ public class TheGame extends AppCompatActivity {
         B = findViewById(R.id.button2);
         C = findViewById(R.id.button3);
         D = findViewById(R.id.button4);
+        currScore = findViewById(R.id.textView7);
         if (outOfQuestions == false) {
             getNextEntry(); // Mr. U - We set currentHeadline to the first headline found in the HashMap. Without this being called, we get a NullPointerException
             askQuestion(currentHeadlne); //Mr. U - You play a "round"
@@ -79,6 +81,7 @@ public class TheGame extends AppCompatActivity {
         if (currentHeadlne.getBlank().equals(A.getText())){
             score++;
         }
+        currScore.setText(""+score);
         getNextEntry();
         askQuestion(currentHeadlne); //Mr. U - You play a "round"
         iterate();
@@ -90,6 +93,7 @@ public class TheGame extends AppCompatActivity {
             score++;
 
         }
+        currScore.setText(""+score);
         getNextEntry();
         askQuestion(currentHeadlne); //Mr. U - You play a "round"
         iterate();
@@ -101,6 +105,7 @@ public class TheGame extends AppCompatActivity {
             score++;
 
         }
+        currScore.setText(""+score);
         getNextEntry();
         askQuestion(currentHeadlne); //Mr. U - You play a "round"
         iterate();
@@ -112,6 +117,7 @@ public class TheGame extends AppCompatActivity {
             score++;
 
         }
+        currScore.setText(""+score);
         getNextEntry();
         askQuestion(currentHeadlne); //Mr. U - You play a "round"
         iterate();
