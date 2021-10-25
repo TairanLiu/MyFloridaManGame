@@ -14,7 +14,7 @@ public class Final extends AppCompatActivity {
         setContentView(R.layout.activity_final);
         finalScore = findViewById(R.id.textView4);
         bestScore = findViewById(R.id.textView6);
-        getFinalScore();
+        finalScore.setText(TheGame.score());
         bestScore.setText(getBestScore());
 
     }
