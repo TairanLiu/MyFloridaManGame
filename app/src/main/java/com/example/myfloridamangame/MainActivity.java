@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     public void loadScreen(){
         Intent intent = new Intent (this, TheGame.class);
         //take from this current view to theGame
