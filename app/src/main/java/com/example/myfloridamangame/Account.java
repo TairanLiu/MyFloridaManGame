@@ -11,10 +11,10 @@ public class Account implements Serializable {
     private String fullName;
     private int bestScore = 0;
     //private int count = 0;
-    public Account(EditText u, EditText p){
-        fullName = u.toString() + "the user";
-        username = u.toString();
-        password = p.toString();
+    public Account(String u, String p){
+        fullName = u + "the user";
+        username = u;
+        password = p;
         bestScore = 0;
         privateID = username + password;
 

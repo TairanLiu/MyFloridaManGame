@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     static HashMap<String,Account>players= new HashMap<String,Account>();
     //static Integer count = 0;
     //static Account player1 = new Account (user,password);
+    static String User;
+    static String Password;
 
 
     @Override
@@ -32,9 +34,14 @@ public class MainActivity extends AppCompatActivity {
         players.put(1,account1);
         Account account2 = new Account(null, null,2);
         players.put(2,account2);*/
+        initialize();
 
 
 
+    }
+    public static void initialize() {
+         User = user.toString();
+         Password = password.toString();
     }
 
     public void loadScreen(){
@@ -50,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }*/
-        Account player1 = new Account (user,password);
+        Account player1 = new Account (User,Password);
         players.put(player1.getPrivateID(),player1);
         //count++;
         //Log.d("account","created");
@@ -63,9 +70,11 @@ public class MainActivity extends AppCompatActivity {
         loadScreen();
     }
     public static int getHighScore() {
-        Account player1 = new Account (user,password);
+        Account player1 = new Account (User,Password);
+        Log.d("privat id fetched", player1.getPrivateID());
         return players.get(player1.getPrivateID()).getBestScore();
         //return players.get(thisPerson.getPrivateID()).getBestScore();
+
     }
     //getBestScore
 
