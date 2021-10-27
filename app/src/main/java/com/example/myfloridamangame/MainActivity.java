@@ -18,7 +18,7 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
     static EditText user;
     static EditText password;
-    static HashMap<Integer,Account>players= new HashMap<Integer,Account>();
+    static HashMap<String,Account>players= new HashMap<>();
     //static Integer count = 0;
     //static Account player1 = new Account (user,password);
     static String User;
@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
         initialize();
         //i = players.entrySet().iterator();
         Account player1 = new Account ("kate","123");
-        players.put(0,player1);
+        players.put("kate",player1);
         Account player2 = new Account ("Life","in general");
-        players.put(1,player2);
+        players.put("Life",player2);
         Account player3 = new Account ("I am","tired");
-        players.put(2,player3);
+        players.put("I am",player3);
 
 
 
@@ -81,21 +81,30 @@ public class MainActivity extends AppCompatActivity {
     //Context context = getApplicationContext();
     //How to load this screen?
     public void onClick(View view){
-        //fix this
-        /*Account player1 = new Account (User,Password);
-        Log.d("player1 privateid1", player1.getPrivateID());
-        if (players.get(player1.getPrivateID()) == null){
-            Log.d("second", "first condition");
-            players.put(player1.getPrivateID(),player1);
-            Log.d("player1 privateid2", players.get(player1.getPrivateID()).getPrivateID());
-            loadScreen();
+        Account player1 = new Account (User,Password);
+        //Log.d("player1 privateid1", player1.getPrivateID());
+        if (players.get(User) == null){
+            //Log.d("second", "first condition");
+            //players.put(player1.getPrivateID(),player1);
+            //Log.d("player1 privateid2", players.get(player1.getPrivateID()).getPrivateID());
+            Log.d(User, "not found");
         }
         //addAccount();
-        else if (players.get(player1.getPrivateID()).getPassword().equals(Password)){
+        else if (players.get(User)!=null){
+            Account playerFound = players.get(User);
+            if (Password.equals(players.get(User).getPassword())) {
+                loadScreen();
+            }
+            else{
+                Context context = getApplicationContext();
+                CharSequence text = "Are you trying to hack?";
+                int duration = Toast.LENGTH_SHORT;
 
-            loadScreen();
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
-        else {
+        /*else {
             //Log.d("second", "second condition");
             //
             Context context = getApplicationContext();
@@ -104,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
-        }*/
+        }
         Log.d("buttonStart","clicked");
         //Log.d("whatIsUser", User);
         //Log.d("whatIsPass",Password);
@@ -113,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 (user.getText().toString().equals("I am")&&password.getText().toString().equals("tired"))){
             loadScreen();
         }*/
-        if (user.getText().toString().equals("kate")&&password.getText().toString().equals("123")){
+        /*if (user.getText().toString().equals("kate")&&password.getText().toString().equals("123")){
             currentAccount = players.get(0);
             loadScreen();
         }
@@ -132,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
-        }
+        }*/
     }
     public static int getHighScore() {
         /*Account player1 = new Account (User,Password);

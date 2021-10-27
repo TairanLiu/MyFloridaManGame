@@ -5,7 +5,7 @@ import android.widget.EditText;
 import java.io.Serializable;
 
 public class Account implements Serializable {
-    private String privateID;
+    //private String privateID;
     private String username;
     private String password;
     private String fullName;
@@ -16,7 +16,7 @@ public class Account implements Serializable {
         username = u;
         password = p;
         bestScore = 0;
-        privateID = username + count;
+        //privateID = username + count;
 
         count ++;
     }
@@ -25,7 +25,7 @@ public class Account implements Serializable {
             bestScore = p;
         }
     }
-    public String getPrivateID(){ return privateID; }
+    //public String getPrivateID(){ return privateID; }
     public int getBestScore(){return bestScore;}
 
     public void setUsername(String username) {
