@@ -2,13 +2,17 @@ package com.example.myfloridamangame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     //static Account player1 = new Account (user,password);
     static String User;
     static String Password;
+    //
+    private boolean pwcorrect = false;
+    Iterator<Map.Entry<String,Account>> i;
 
 
     @Override
@@ -35,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Account account2 = new Account(null, null,2);
         players.put(2,account2);*/
         initialize();
+        i = players.entrySet().iterator();
 
 
 
@@ -57,17 +65,30 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }*/
-        Account player1 = new Account (User,Password);
-        players.put(player1.getPrivateID(),player1);
+        //Account player1 = new Account (User,Password);
+        //players.put(player1.getPrivateID(),player1);
         //count++;
         //Log.d("account","created");
-        Log.d("privat id", player1.getPrivateID());
+        //Log.d("privat id", player1.getPrivateID());
     }
-
+    //Context context = getApplicationContext();
     //How to load this screen?
     public void onClick(View view){
-        addAccount();
-        loadScreen();
+        Account player1 = new Account (User,Password);
+        if (players.get(player1.getPrivateID()) == null){
+            players.put(player1.getPrivateID(),player1);
+            loadScreen();
+        }
+        //addAccount();
+        else if (!players.get(player1.getPrivateID()).getPassword().equals(Password)){
+            Context context = getApplicationContext();
+            CharSequence text = "Are you trying to hack?";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+        else {loadScreen();}
     }
     public static int getHighScore() {
         Account player1 = new Account (User,Password);

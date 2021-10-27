@@ -10,15 +10,15 @@ public class Account implements Serializable {
     private String password;
     private String fullName;
     private int bestScore = 0;
-    //private int count = 0;
+    private int count = 0;
     public Account(String u, String p){
         fullName = u + "the user";
         username = u;
         password = p;
         bestScore = 0;
-        privateID = username + password;
+        privateID = username + count;
 
-        //count ++;
+        count ++;
     }
     public void setHighPoint(int p){
         if (p>bestScore){
@@ -40,4 +40,7 @@ public class Account implements Serializable {
         return username;
     }
 
+    public String getPassword() {
+        return password;
+    }
 }
