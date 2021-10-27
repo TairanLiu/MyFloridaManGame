@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     static String User;
     static String Password;
     //
-    private boolean pwcorrect = false;
     Iterator<Map.Entry<String,Account>> i;
 
 
@@ -75,12 +74,21 @@ public class MainActivity extends AppCompatActivity {
     //How to load this screen?
     public void onClick(View view){
         Account player1 = new Account (User,Password);
+        Log.d("player1 privateid1", player1.getPrivateID());
         if (players.get(player1.getPrivateID()) == null){
+            Log.d("second", "first condition");
             players.put(player1.getPrivateID(),player1);
+            Log.d("player1 privateid2", players.get(player1.getPrivateID()).getPrivateID());
             loadScreen();
         }
         //addAccount();
-        else if (!players.get(player1.getPrivateID()).getPassword().equals(Password)){
+        else if (players.get(player1.getPrivateID()).getPassword().equals(Password)){
+
+            loadScreen();
+        }
+        else {
+            //Log.d("second", "second condition");
+            //
             Context context = getApplicationContext();
             CharSequence text = "Are you trying to hack?";
             int duration = Toast.LENGTH_SHORT;
@@ -88,11 +96,10 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
-        else {loadScreen();}
     }
     public static int getHighScore() {
         Account player1 = new Account (User,Password);
-        Log.d("privat id fetched", player1.getPrivateID());
+        //Log.d("privat id fetched", player1.getPrivateID());
         return players.get(player1.getPrivateID()).getBestScore();
         //return players.get(thisPerson.getPrivateID()).getBestScore();
 

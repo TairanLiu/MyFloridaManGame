@@ -76,8 +76,8 @@ public class TheGame extends AppCompatActivity {
     }
 
     public void onClickA(View view){
-        System.out.print("life in general");
-        Log.d("Button","clicked");
+        //System.out.print("life in general");
+        //Log.d("Button","clicked");
         if (currentHeadlne.getBlank().equals(A.getText())){
             score++;
         }
@@ -88,7 +88,7 @@ public class TheGame extends AppCompatActivity {
     }
     public void onClickB(View view){
 
-        System.out.print("life in general");
+        //System.out.print("life in general");
         if (currentHeadlne.getBlank().equals(B.getText())){
             score++;
 
@@ -100,7 +100,7 @@ public class TheGame extends AppCompatActivity {
     }
     public void onClickC(View view){
 
-        System.out.print("life in general");
+        //System.out.print("life in general");
         if (currentHeadlne.getBlank().equals(C.getText())){
             score++;
 
@@ -112,7 +112,7 @@ public class TheGame extends AppCompatActivity {
     }
     public void onClickD(View view){
 
-        System.out.print("life in general");
+        //System.out.print("life in general");
         if (currentHeadlne.getBlank().equals(D.getText())){
             score++;
 
@@ -123,7 +123,7 @@ public class TheGame extends AppCompatActivity {
         iterate();
     }
     public void loadScreen(){
-        Log.d("screen","go on");
+        //Log.d("screen","go on");
         Intent intent = new Intent (this, Final.class);
         //take from this current view to theGame
         startActivity(intent);
@@ -134,15 +134,15 @@ public class TheGame extends AppCompatActivity {
 
     public void iterate(){
         if (i.hasNext()) {
-            Log.d("Iterator","Should load next question");
+            //Log.d("Iterator","Should load next question");
 
             getNextEntry(); // Mr. U - We set currentHeadline to the first headline found in the HashMap. Without this being called, we get a NullPointerException
             askQuestion(currentHeadlne); //Mr. U - You play a "round"
-            Log.d("life","gone");
+            //Log.d("life","gone");
             outOfQuestions = isOutOfQuestions(); //Mr. U - Check if the one above was the last so we know when to stop playing
         }
         else{
-            Log.d("Life","remain");
+            //Log.d("Life","remain");
             loadScreen();
         }
     }
