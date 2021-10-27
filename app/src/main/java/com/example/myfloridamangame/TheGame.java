@@ -78,7 +78,7 @@ public class TheGame extends AppCompatActivity {
     public void onClickA(View view){
         //System.out.print("life in general");
         //Log.d("Button","clicked");
-        if (currentHeadlne.getBlank().equals(A.getText())){
+        if (currentHeadlne.getBlank().equals(A.getText().toString())){
             score++;
         }
         currScore.setText(""+score);
@@ -89,7 +89,7 @@ public class TheGame extends AppCompatActivity {
     public void onClickB(View view){
 
         //System.out.print("life in general");
-        if (currentHeadlne.getBlank().equals(B.getText())){
+        if (currentHeadlne.getBlank().equals(B.getText().toString())){
             score++;
 
         }
@@ -101,7 +101,7 @@ public class TheGame extends AppCompatActivity {
     public void onClickC(View view){
 
         //System.out.print("life in general");
-        if (currentHeadlne.getBlank().equals(C.getText())){
+        if (currentHeadlne.getBlank().equals(C.getText().toString())){
             score++;
 
         }
@@ -113,7 +113,7 @@ public class TheGame extends AppCompatActivity {
     public void onClickD(View view){
 
         //System.out.print("life in general");
-        if (currentHeadlne.getBlank().equals(D.getText())){
+        if (currentHeadlne.getBlank().equals(D.getText().toString())){
             score++;
 
         }
@@ -151,5 +151,7 @@ public class TheGame extends AppCompatActivity {
         //take from this current view to theGame
         startActivity(intent);
     }*/
-
+    public static int getScore(){
+        return score;
+    }
 }

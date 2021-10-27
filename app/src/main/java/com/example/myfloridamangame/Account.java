@@ -9,7 +9,7 @@ public class Account implements Serializable {
     private String username;
     private String password;
     private String fullName;
-    private int bestScore = 0;
+    private static int bestScore = 0;
     private int count = 0;
     public Account(String u, String p){
         fullName = u + "the user";
@@ -42,5 +42,9 @@ public class Account implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public static void setBestScore(int b) {
+        b = bestScore;
     }
 }

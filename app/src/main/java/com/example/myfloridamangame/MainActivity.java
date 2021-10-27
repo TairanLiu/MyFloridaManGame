@@ -18,13 +18,14 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
     static EditText user;
     static EditText password;
-    static HashMap<String,Account>players= new HashMap<String,Account>();
+    static HashMap<Integer,Account>players= new HashMap<Integer,Account>();
     //static Integer count = 0;
     //static Account player1 = new Account (user,password);
     static String User;
     static String Password;
+    static Account currentAccount = new Account(null,null);
     //
-    Iterator<Map.Entry<String,Account>> i;
+    //Iterator<Map.Entry<String,Account>> i;
 
 
     @Override
@@ -41,14 +42,21 @@ public class MainActivity extends AppCompatActivity {
         Account account2 = new Account(null, null,2);
         players.put(2,account2);*/
         initialize();
-        i = players.entrySet().iterator();
+        //i = players.entrySet().iterator();
+        Account player1 = new Account ("kate","123");
+        players.put(0,player1);
+        Account player2 = new Account ("Life","in general");
+        players.put(1,player2);
+        Account player3 = new Account ("I am","tired");
+        players.put(2,player3);
+
 
 
 
     }
     public static void initialize() {
-         User = user.toString();
-         Password = password.toString();
+         User = user.getText().toString();
+         Password = password.getText().toString();
     }
 
     public void loadScreen(){
@@ -73,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
     //Context context = getApplicationContext();
     //How to load this screen?
     public void onClick(View view){
-        Account player1 = new Account (User,Password);
+        //fix this
+        /*Account player1 = new Account (User,Password);
         Log.d("player1 privateid1", player1.getPrivateID());
         if (players.get(player1.getPrivateID()) == null){
             Log.d("second", "first condition");
@@ -95,15 +104,51 @@ public class MainActivity extends AppCompatActivity {
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
+        }*/
+        Log.d("buttonStart","clicked");
+        //Log.d("whatIsUser", User);
+        //Log.d("whatIsPass",Password);
+        /*if (//(user.getText().toString().equals("kate")&&password.getText().toString().equals("123"))||
+                (user.getText().toString().equals("Life")&&password.getText().toString().equals("in general"))||
+                (user.getText().toString().equals("I am")&&password.getText().toString().equals("tired"))){
+            loadScreen();
+        }*/
+        if (user.getText().toString().equals("kate")&&password.getText().toString().equals("123")){
+            currentAccount = players.get(0);
+            loadScreen();
+        }
+        if (user.getText().toString().equals("life")&&password.getText().toString().equals("in general")){
+            currentAccount = players.get(1);
+            loadScreen();
+        }
+        if (user.getText().toString().equals("I am")&&password.getText().toString().equals("tired")){
+            currentAccount = players.get(2);
+            loadScreen();
+        }
+        else {
+            Context context = getApplicationContext();
+            CharSequence text = "Are you trying to hack?";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
     }
     public static int getHighScore() {
-        Account player1 = new Account (User,Password);
+        /*Account player1 = new Account (User,Password);
         //Log.d("privat id fetched", player1.getPrivateID());
         return players.get(player1.getPrivateID()).getBestScore();
-        //return players.get(thisPerson.getPrivateID()).getBestScore();
+        //return players.get(thisPerson.getPrivateID()).getBestScore();*/
+        if (currentAccount.getBestScore()<TheGame.getScore()){
+            Account.setBestScore(TheGame.getScore());
+            return TheGame.getScore();
+        }
+        else return currentAccount.getBestScore();
 
     }
-    //getBestScore
+
+    public static Account getCurrentAccount(){
+        return currentAccount;
+    }
 
 }
