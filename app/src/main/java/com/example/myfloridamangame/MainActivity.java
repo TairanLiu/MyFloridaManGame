@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         players.put(1,account1);
         Account account2 = new Account(null, null,2);
         players.put(2,account2);*/
-        initialize();
+
         //i = players.entrySet().iterator();
         Account player1 = new Account ("kate","123");
         players.put("kate",player1);
@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     //Context context = getApplicationContext();
     //How to load this screen?
     public void onClick(View view){
+        initialize();
         Account player1 = new Account (User,Password);
         //Log.d("player1 privateid1", player1.getPrivateID());
         if (players.get(User) == null){

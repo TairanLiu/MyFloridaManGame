@@ -21,7 +21,11 @@ public class TheGame extends AppCompatActivity {
     Button C;
     Button D;
     TextView currScore;
+    TextView highScore;
+    TextView idUser;
+    TextView wrong;
     static int score = 0;
+    static int incorrect = 0;
     String selectedAnswer;
     Iterator<Map.Entry<Integer, Headline>>  i;
     Headline currentHeadlne;
@@ -40,12 +44,17 @@ public class TheGame extends AppCompatActivity {
         C = findViewById(R.id.button3);
         D = findViewById(R.id.button4);
         currScore = findViewById(R.id.textView7);
+        highScore = findViewById(R.id.textView11);
+        idUser = findViewById(R.id.textView13);
+        wrong = findViewById(R.id.textView15);
         if (outOfQuestions == false) {
             getNextEntry(); // Mr. U - We set currentHeadline to the first headline found in the HashMap. Without this being called, we get a NullPointerException
             askQuestion(currentHeadlne); //Mr. U - You play a "round"
             //getNextEntry(); //Mr. U - We move to the next question
             outOfQuestions = isOutOfQuestions(); //Mr. U - Check if the one above was the last so we know when to stop playing
         }
+        highScore.setText(""+MainActivity.getCurrentAccount().getBestScore());
+        idUser.setText(MainActivity.getCurrentAccount().getUsername()+"/"+MainActivity.getCurrentAccount().getUsername()+"the player");
 
     }
 
@@ -78,20 +87,27 @@ public class TheGame extends AppCompatActivity {
     public void onClickA(View view){
         //System.out.print("life in general");
         //Log.d("Button","clicked");
-        if (currentHeadlne.getBlank().equals(A.getText().toString())){
+        String choice = A.getText().toString();
+        if (currentHeadlne.getBlank().equals(choice)){
             score++;
+        } else {
+            incorrect ++;
         }
         currScore.setText(""+score);
         getNextEntry();
         askQuestion(currentHeadlne); //Mr. U - You play a "round"
         iterate();
+
     }
     public void onClickB(View view){
 
         //System.out.print("life in general");
-        if (currentHeadlne.getBlank().equals(B.getText().toString())){
+        String choice = B.getText().toString();
+        if (currentHeadlne.getBlank().equals(choice)){
             score++;
 
+        }else{
+            incorrect++;
         }
         currScore.setText(""+score);
         getNextEntry();
@@ -101,9 +117,12 @@ public class TheGame extends AppCompatActivity {
     public void onClickC(View view){
 
         //System.out.print("life in general");
-        if (currentHeadlne.getBlank().equals(C.getText().toString())){
+        String choice = C.getText().toString();
+        if (currentHeadlne.getBlank().equals(choice)){
             score++;
 
+        }else{
+            incorrect++;
         }
         currScore.setText(""+score);
         getNextEntry();
@@ -113,9 +132,12 @@ public class TheGame extends AppCompatActivity {
     public void onClickD(View view){
 
         //System.out.print("life in general");
-        if (currentHeadlne.getBlank().equals(D.getText().toString())){
+        String choice = D.getText().toString();
+        if (currentHeadlne.getBlank().equals(choice)){
             score++;
 
+        }else{
+            incorrect++;
         }
         currScore.setText(""+score);
         getNextEntry();
@@ -140,6 +162,8 @@ public class TheGame extends AppCompatActivity {
             askQuestion(currentHeadlne); //Mr. U - You play a "round"
             //Log.d("life","gone");
             outOfQuestions = isOutOfQuestions(); //Mr. U - Check if the one above was the last so we know when to stop playing
+            currScore.setText(""+getScore());
+            wrong.setText(""+incorrect);
         }
         else{
             //Log.d("Life","remain");
