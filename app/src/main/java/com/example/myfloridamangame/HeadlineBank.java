@@ -19,7 +19,7 @@ public class HeadlineBank {
         return hdl;
     }*/
     public static void generateHeadline(){
-        Headline pika = new Headline("Pikachu", "florida man with____tattoo charged with attempted murder","Pikachu ","JOJO ","Santa ","FL ");
+        Headline pika = new Headline("pikachu", "florida man with____tattoo charged with attempted murder","Pikachu ","JOJO ","Santa ","FL ");
         hdlBank.put(1,pika);
         //florida man dressed on onesie attemped to burn
         Headline onesie = new Headline("burn","florida man dressed on onesie attemped to____","rob ","burn ","murder ","steal ");

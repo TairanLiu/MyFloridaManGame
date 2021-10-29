@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 public class TheGame extends AppCompatActivity {
@@ -87,10 +88,12 @@ public class TheGame extends AppCompatActivity {
     public void onClickA(View view){
         //System.out.print("life in general");
         //Log.d("Button","clicked");
-        String choice = A.getText().toString();
-        if (currentHeadlne.getBlank().equals(choice)){
+        String choice = A.getText().toString().toLowerCase();
+        if (currentHeadlne.getBlank().equalsIgnoreCase(choice.substring(0,choice.length()-1))){
             score++;
         } else {
+            Log.d("current",currentHeadlne.getBlank());
+            Log.d("choice", choice);
             incorrect ++;
         }
         currScore.setText(""+score);
@@ -102,11 +105,13 @@ public class TheGame extends AppCompatActivity {
     public void onClickB(View view){
 
         //System.out.print("life in general");
-        String choice = B.getText().toString();
-        if (currentHeadlne.getBlank().equals(choice)){
+        String choice = B.getText().toString().toLowerCase();
+        if (currentHeadlne.getBlank().equalsIgnoreCase(choice.substring(0,choice.length()-1))){
             score++;
 
         }else{
+            Log.d("current",currentHeadlne.getBlank());
+            Log.d("choice", choice);
             incorrect++;
         }
         currScore.setText(""+score);
@@ -117,11 +122,13 @@ public class TheGame extends AppCompatActivity {
     public void onClickC(View view){
 
         //System.out.print("life in general");
-        String choice = C.getText().toString();
-        if (currentHeadlne.getBlank().equals(choice)){
+        String choice = C.getText().toString().toLowerCase();
+        if (currentHeadlne.getBlank().equalsIgnoreCase(choice.substring(0,choice.length()-1))){
             score++;
 
         }else{
+            Log.d("current",currentHeadlne.getBlank());
+            Log.d("choice", choice);
             incorrect++;
         }
         currScore.setText(""+score);
@@ -132,11 +139,13 @@ public class TheGame extends AppCompatActivity {
     public void onClickD(View view){
 
         //System.out.print("life in general");
-        String choice = D.getText().toString();
-        if (currentHeadlne.getBlank().equals(choice)){
+        String choice = D.getText().toString().toLowerCase();
+        if (currentHeadlne.getBlank().equalsIgnoreCase(choice.substring(0,choice.length()-1))){
             score++;
 
         }else{
+            Log.d("current",currentHeadlne.getBlank());
+            Log.d("choice", choice);
             incorrect++;
         }
         currScore.setText(""+score);
